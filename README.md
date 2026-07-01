@@ -12,6 +12,20 @@ python3 -m build
 
 This will create a `.tar.gz` source distribution and a `.whl` binary wheel in the `dist/` directory.
 
+## Offline Installation
+
+To install this package on a machine without internet access, you first need to build/download the necessary wheel artifacts for the package and its dependencies on a machine that *does* have internet access.
+
+1.  **Download Dependencies & Build Package:** On an internet-connected machine, run the following command to build the package wheel and download its dependencies into a `wheels` directory:
+    ```bash
+    python3 -m pip wheel . -w wheels/
+    ```
+2.  **Transfer:** Transfer the resulting `wheels/` directory to the offline machine.
+3.  **Install Offline:** On the offline machine, install the package using the transferred wheels, telling pip to not search the package index:
+    ```bash
+    python3 -m pip install my_awesome_package --no-index --find-links ./wheels/
+    ```
+
 ## Installation
 
 You can install this package using pip:
