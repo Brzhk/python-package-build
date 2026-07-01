@@ -2,6 +2,16 @@
 
 A bootstrapped python package that supports multiple OS (Solaris, AIX, Windows, Linux) and Architectures (s390x, aarch64, amd64). It requires Python 3.11.
 
+## Build Instructions
+
+To build the package, you need the `build` module. You can run the following command from the root of the repository:
+
+```bash
+python3 -m build
+```
+
+This will create a `.tar.gz` source distribution and a `.whl` binary wheel in the `dist/` directory.
+
 ## Installation
 
 You can install this package using pip:
@@ -15,6 +25,21 @@ If you are publishing it to a PyPI repository, you can install it with:
 ```bash
 pip install my-awesome-package
 ```
+
+## User Installation (`--user`)
+
+If you install the package using the `--user` flag (e.g., `pip install --user .`), the executable scripts (`my-awesome-script`, `my-other-script`) will be placed in a user-specific directory. To run these scripts from anywhere, you must ensure this directory is in your system's `PATH`.
+
+### Linux/macOS
+The scripts are typically installed in `~/.local/bin`. Add it to your `PATH` by adding this line to your shell configuration file (e.g., `~/.bashrc` or `~/.zshrc`):
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+Then, reload your configuration (e.g., `source ~/.bashrc`).
+
+### Windows
+The scripts are typically installed in `%APPDATA%\Python\Python311\Scripts` (adjusting for your specific Python version). Add this directory to your `PATH` via the System Properties -> Environment Variables dialog.
 
 ## Running the Package Scripts
 

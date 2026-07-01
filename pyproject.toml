@@ -26,3 +26,4 @@ dependencies = [
 
 [project.scripts]
 my-awesome-script = "my_awesome_package.cli:main"
+my-other-script = "my_awesome_package.cli:main2"
